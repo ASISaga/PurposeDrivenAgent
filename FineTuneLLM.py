@@ -14,6 +14,7 @@ import transformers
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, AutoTokenizer, AutoModelForSeq2SeqLM
 from datasets import Dataset
 import faiss  # FAISS library for efficient similarity search
+from config import MODEL_DIR
 
 # Define the DocumentTrainer class
 class DocumentTrainer:
@@ -222,7 +223,10 @@ trainer = Trainer(
 trainer.train()
 
 # Save progressively fine-tuned model
-model.save_pretrained("./final_model")
+model.save_pretrained(MODEL_DIR)
+
+# Save the tokenizer as well
+tokenizer.save_pretrained(MODEL_DIR)
 
 # Evaluation and Validation:**
 ## Evaluate the model’s performance on domain-specific tasks using various metrics.
