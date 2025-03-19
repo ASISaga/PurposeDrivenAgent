@@ -6,19 +6,20 @@
 # Start with a Small Subset:** Select a small subset of your domain-specific text for the initial fine-tuning.
 # Fine-Tune the Model:** Fine-tune the model on this subset and save the intermediate model.
 
+# import PyTorch library for custom dataset
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
 
 # Import necessary libraries from the transformers and datasets packages
-import transformers
-from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
+from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, AutoModelForSeq2SeqLM
+
 from datasets import Dataset
-import faiss  # FAISS library for efficient similarity search
-from config import MODEL_DIR
+#import faiss  # FAISS library for efficient similarity search
+from config import model_name, MODEL_DIR
 
 # Define the DocumentTrainer class
 class DocumentTrainer:
-    def __init__(self, model_name="deepseek-ai/DeepSeek-R1", output_dir="./results"):
+    def __init__(self, model_name=model_name, output_dir="./results"):
         """
         Initialize the DocumentTrainer with the specified model and output directory.
         Args:
