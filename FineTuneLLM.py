@@ -229,6 +229,16 @@ model.save_pretrained(MODEL_DIR)
 # Save the tokenizer as well
 tokenizer.save_pretrained(MODEL_DIR)
 
+# Save_pretrained() method on a Hugging Face PreTrainedModel instance, saves the following files to the specified directory:
+
+# config.json - model architecture configuration—parameters such as layer sizes, number of attention heads, dropout rates, etc.
+# ensures that when you later load the model, it’s instantiated with the same architecture and settings used during training or fine-tuning.
+
+# pytorch_model.bin
+# The model’s learned weights (state dictionary) are serialized into this binary file (stored as a PyTorch state_dict)
+# ensures that the model is initialized with the learned parameters from training or fine-tuning.
+
+
 # Evaluation and Validation:**
 ## Evaluate the model’s performance on domain-specific tasks using various metrics.
 ## Validate the model’s generalization capabilities with unseen text from the domain.
