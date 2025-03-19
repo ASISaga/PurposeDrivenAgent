@@ -5,7 +5,6 @@ from config import model
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 from autogen_agentchat.ui import Console
-from autogen_agentchat.teams import RoundRobinGroupChat
 
 
 from autogen_ext.agents.web_surfer import MultimodalWebSurfer
