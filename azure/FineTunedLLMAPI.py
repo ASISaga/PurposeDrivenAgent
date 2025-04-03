@@ -3,15 +3,14 @@
 
 import azure.functions as func
 import json
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from PurposeDrivenAgent.LLM.TransformersUtil import TransformersUtil  # Import the class
 from config import MODEL_DIR
 
 # Load the model and tokenizer
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     # Load the model and tokenizer
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR)
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
+    model, tokenizer = TransformersUtil.load_model_and_tokenizer()  # Use the static method
 
     # Extract input from the request
     text = req.params.get('text')
