@@ -1,7 +1,7 @@
 # Autonomously complete a coding task:
 import asyncio
 
-from config import model
+from FineTunedLLM.config import model
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 from autogen_agentchat.ui import Console
